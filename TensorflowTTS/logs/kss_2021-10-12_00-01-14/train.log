@@ -1,0 +1,636 @@
+
+-----------------------------------------------------------------
+Starting new training run
+-----------------------------------------------------------------
+[2021-10-12 00:01:14.744]     [*] git recv-parse HEAD:
+becbd0ab80dbefe64a8fdea4a19856924dd31504
+
+[2021-10-12 00:01:14.744]    ==================================================
+[2021-10-12 00:01:14.744]    ==================================================
+[2021-10-12 00:01:14.744]     [*] Checkpoint path: logs/kss_2021-10-12_00-01-14/model.ckpt
+[2021-10-12 00:01:14.744]     [*] Loading training data from: ['datasets/kss/data']
+[2021-10-12 00:01:14.744]     [*] Using model: logs/kss_2021-10-12_00-01-14
+[2021-10-12 00:01:14.744]    Hyperparameters:
+    adam_beta1: 0.9
+    adam_beta2: 0.999
+    attention_size: 128
+    attention_state_size: 256
+    attention_type: bah_mon
+    batch_size: 32
+    cleaners: korean_cleaners
+    dec_layer_num: 2
+    dec_prenet_sizes: [256, 128]
+    dec_rnn_size: 256
+    decay_learning_rate_mode: 0
+    dropout_prob: 0.5
+    embedding_size: 256
+    enc_bank_channel_size: 128
+    enc_bank_size: 16
+    enc_highway_depth: 4
+    enc_maxpool_width: 2
+    enc_prenet_sizes: [256, 128]
+    enc_proj_sizes: [128, 128]
+    enc_proj_width: 3
+    enc_rnn_size: 128
+    frame_length_ms: 50
+    frame_shift_ms: 12.5
+    griffin_lim_iters: 60
+    ignore_recognition_level: 0
+    initial_data_greedy: True
+    initial_learning_rate: 0.001
+    initial_phase_step: 8000
+    main_data: ['']
+    main_data_greedy_factor: 0
+    max_iters: 200
+    min_iters: 30
+    min_level_db: -100
+    min_tokens: 50
+    model_type: single
+    num_freq: 1025
+    num_mels: 80
+    post_bank_channel_size: 128
+    post_bank_size: 8
+    post_highway_depth: 4
+    post_maxpool_width: 2
+    post_proj_sizes: [256, 80]
+    post_proj_width: 3
+    post_rnn_size: 128
+    power: 1.5
+    preemphasis: 0.97
+    prioritize_loss: False
+    recognition_loss_coeff: 0.2
+    reduction_factor: 5
+    ref_level_db: 20
+    sample_rate: 22050
+    skip_inadequate: False
+    speaker_embedding_size: 16
+    use_fixed_test_inputs: False
+[2021-10-12 00:01:24.670]     [datasets/kss/data] Loaded metadata for 3758 examples (4.92 hours)
+[2021-10-12 00:01:24.670]     [datasets/kss/data] Max length: 723
+[2021-10-12 00:01:24.670]     [datasets/kss/data] Min length: 216
+[2021-10-12 00:01:24.672]    ========================================
+[2021-10-12 00:01:24.672]    {'datasets/kss/data': 1.0}
+[2021-10-12 00:01:24.672]    ========================================
+[2021-10-12 00:01:33.770]     [datasets/kss/data] Loaded metadata for 3758 examples (4.92 hours)
+[2021-10-12 00:01:33.771]     [datasets/kss/data] Max length: 723
+[2021-10-12 00:01:33.771]     [datasets/kss/data] Min length: 216
+[2021-10-12 00:01:33.772]    ========================================
+[2021-10-12 00:01:33.772]    {'datasets/kss/data': 1.0}
+[2021-10-12 00:01:33.772]    ========================================
+[2021-10-12 00:01:38.037]    ========================================
+[2021-10-12 00:01:38.037]     model_type: single
+[2021-10-12 00:01:38.037]    ========================================
+[2021-10-12 00:01:38.037]    Initialized Tacotron model. Dimensions: 
+[2021-10-12 00:01:38.037]        embedding:                256
+[2021-10-12 00:01:38.037]        speaker embedding:        None
+[2021-10-12 00:01:38.037]        prenet out:               128
+[2021-10-12 00:01:38.037]        encoder out:              256
+[2021-10-12 00:01:38.037]        attention out:            256
+[2021-10-12 00:01:38.037]        concat attn & out:        512
+[2021-10-12 00:01:38.037]        decoder cell out:         256
+[2021-10-12 00:01:38.037]        decoder out (5 frames):  400
+[2021-10-12 00:01:38.037]        decoder out (1 frame):    80
+[2021-10-12 00:01:38.037]        postnet out:              256
+[2021-10-12 00:01:38.037]        linear out:               1025
+[2021-10-12 00:01:50.519]    ========================================
+[2021-10-12 00:01:50.519]     model_type: single
+[2021-10-12 00:01:50.519]    ========================================
+[2021-10-12 00:01:50.519]    Initialized Tacotron model. Dimensions: 
+[2021-10-12 00:01:50.519]        embedding:                256
+[2021-10-12 00:01:50.519]        speaker embedding:        None
+[2021-10-12 00:01:50.519]        prenet out:               128
+[2021-10-12 00:01:50.519]        encoder out:              256
+[2021-10-12 00:01:50.519]        attention out:            256
+[2021-10-12 00:01:50.519]        concat attn & out:        512
+[2021-10-12 00:01:50.519]        decoder cell out:         256
+[2021-10-12 00:01:50.519]        decoder out (5 frames):  400
+[2021-10-12 00:01:50.519]        decoder out (1 frame):    80
+[2021-10-12 00:01:50.519]        postnet out:              256
+[2021-10-12 00:01:50.519]        linear out:               1025
+[2021-10-12 00:02:18.130]    Starting new training run at commit: None
+[2021-10-12 00:02:18.171]    Generated 8 batches of size 2 in 0.000 sec
+[2021-10-12 00:02:26.694]    Generated 32 batches of size 32 in 8.524 sec
+[2021-10-12 00:02:33.400]    Step 1       [15.229 sec/step, loss=0.86545, avg_loss=0.86545]
+[2021-10-12 00:02:40.108]    Step 2       [10.968 sec/step, loss=0.85891, avg_loss=0.86218]
+[2021-10-12 00:02:45.381]    Step 3       [9.070 sec/step, loss=0.85433, avg_loss=0.85956]
+[2021-10-12 00:02:51.963]    Step 4       [8.448 sec/step, loss=0.85768, avg_loss=0.85909]
+[2021-10-12 00:02:58.723]    Step 5       [8.110 sec/step, loss=0.85796, avg_loss=0.85886]
+[2021-10-12 00:03:04.802]    Step 6       [7.772 sec/step, loss=0.84971, avg_loss=0.85734]
+[2021-10-12 00:03:10.682]    Step 7       [7.501 sec/step, loss=0.84256, avg_loss=0.85523]
+[2021-10-12 00:03:15.640]    Step 8       [7.183 sec/step, loss=0.87646, avg_loss=0.85788]
+[2021-10-12 00:03:20.259]    Step 9       [6.899 sec/step, loss=0.90616, avg_loss=0.86325]
+[2021-10-12 00:03:28.599]    Step 10      [7.043 sec/step, loss=0.85321, avg_loss=0.86224]
+[2021-10-12 00:03:33.629]    Step 11      [6.860 sec/step, loss=0.87017, avg_loss=0.86296]
+[2021-10-12 00:03:45.476]    Step 12      [7.275 sec/step, loss=0.66982, avg_loss=0.84687]
+[2021-10-12 00:03:53.845]    Step 13      [7.359 sec/step, loss=0.81199, avg_loss=0.84418]
+[2021-10-12 00:03:59.528]    Step 14      [7.240 sec/step, loss=0.83992, avg_loss=0.84388]
+[2021-10-12 00:04:04.645]    Step 15      [7.098 sec/step, loss=0.84559, avg_loss=0.84399]
+[2021-10-12 00:04:10.732]    Step 16      [7.035 sec/step, loss=0.83338, avg_loss=0.84333]
+[2021-10-12 00:04:16.491]    Step 17      [6.960 sec/step, loss=0.85305, avg_loss=0.84390]
+[2021-10-12 00:04:21.925]    Step 18      [6.875 sec/step, loss=0.84809, avg_loss=0.84413]
+[2021-10-12 00:04:27.062]    Step 19      [6.784 sec/step, loss=0.86162, avg_loss=0.84505]
+[2021-10-12 00:04:31.401]    Step 20      [6.661 sec/step, loss=0.92905, avg_loss=0.84925]
+[2021-10-12 00:04:38.795]    Step 21      [6.696 sec/step, loss=0.83739, avg_loss=0.84869]
+[2021-10-12 00:04:43.836]    Step 22      [6.621 sec/step, loss=0.86685, avg_loss=0.84952]
+[2021-10-12 00:04:49.447]    Step 23      [6.577 sec/step, loss=0.83667, avg_loss=0.84896]
+[2021-10-12 00:04:54.826]    Step 24      [6.527 sec/step, loss=0.84864, avg_loss=0.84894]
+[2021-10-12 00:05:00.051]    Step 25      [6.475 sec/step, loss=0.83458, avg_loss=0.84837]
+[2021-10-12 00:05:01.146]    Generated 32 batches of size 32 in 11.374 sec
+[2021-10-12 00:05:05.823]    Step 26      [6.448 sec/step, loss=0.84176, avg_loss=0.84811]
+[2021-10-12 00:05:11.749]    Step 27      [6.429 sec/step, loss=0.82362, avg_loss=0.84721]
+[2021-10-12 00:05:17.112]    Step 28      [6.391 sec/step, loss=0.83779, avg_loss=0.84687]
+[2021-10-12 00:05:23.082]    Step 29      [6.376 sec/step, loss=0.80770, avg_loss=0.84552]
+[2021-10-12 00:05:29.851]    Step 30      [6.389 sec/step, loss=0.81291, avg_loss=0.84443]
+[2021-10-12 00:05:36.275]    Step 31      [6.390 sec/step, loss=0.81335, avg_loss=0.84343]
+[2021-10-12 00:05:42.622]    Step 32      [6.389 sec/step, loss=0.81604, avg_loss=0.84257]
+[2021-10-12 00:05:50.095]    Step 33      [6.422 sec/step, loss=0.81933, avg_loss=0.84187]
+[2021-10-12 00:05:56.798]    Step 34      [6.430 sec/step, loss=0.79950, avg_loss=0.84062]
+[2021-10-12 00:06:02.490]    Step 35      [6.409 sec/step, loss=0.84148, avg_loss=0.84065]
+[2021-10-12 00:06:07.213]    Step 36      [6.362 sec/step, loss=0.81378, avg_loss=0.83990]
+[2021-10-12 00:06:12.059]    Step 37      [6.321 sec/step, loss=0.83095, avg_loss=0.83966]
+[2021-10-12 00:06:17.468]    Step 38      [6.297 sec/step, loss=0.82306, avg_loss=0.83922]
+[2021-10-12 00:06:22.927]    Step 39      [6.276 sec/step, loss=0.82662, avg_loss=0.83890]
+[2021-10-12 00:06:28.408]    Step 40      [6.256 sec/step, loss=0.80818, avg_loss=0.83813]
+[2021-10-12 00:06:33.688]    Step 41      [6.232 sec/step, loss=0.79946, avg_loss=0.83719]
+[2021-10-12 00:06:41.201]    Step 42      [6.262 sec/step, loss=0.79250, avg_loss=0.83612]
+[2021-10-12 00:06:50.565]    Step 43      [6.335 sec/step, loss=0.79083, avg_loss=0.83507]
+[2021-10-12 00:06:56.575]    Step 44      [6.327 sec/step, loss=0.79899, avg_loss=0.83425]
+[2021-10-12 00:07:03.492]    Step 45      [6.340 sec/step, loss=0.78408, avg_loss=0.83314]
+[2021-10-12 00:07:08.117]    Step 46      [6.303 sec/step, loss=0.79985, avg_loss=0.83241]
+[2021-10-12 00:07:13.246]    Step 47      [6.278 sec/step, loss=0.80004, avg_loss=0.83172]
+[2021-10-12 00:07:18.549]    Step 48      [6.258 sec/step, loss=0.79582, avg_loss=0.83098]
+[2021-10-12 00:07:25.019]    Step 49      [6.262 sec/step, loss=0.76507, avg_loss=0.82963]
+[2021-10-12 00:07:31.367]    Step 50      [6.264 sec/step, loss=0.77899, avg_loss=0.82862]
+[2021-10-12 00:07:36.747]    Step 51      [6.246 sec/step, loss=0.77013, avg_loss=0.82747]
+[2021-10-12 00:07:41.352]    Step 52      [6.215 sec/step, loss=0.81773, avg_loss=0.82728]
+[2021-10-12 00:07:48.070]    Step 53      [6.224 sec/step, loss=0.77016, avg_loss=0.82621]
+[2021-10-12 00:07:53.190]    Step 54      [6.204 sec/step, loss=0.76610, avg_loss=0.82509]
+[2021-10-12 00:07:58.882]    Step 55      [6.195 sec/step, loss=0.76797, avg_loss=0.82405]
+[2021-10-12 00:08:04.373]    Step 56      [6.182 sec/step, loss=0.77600, avg_loss=0.82320]
+[2021-10-12 00:08:10.907]    Step 57      [6.188 sec/step, loss=0.75283, avg_loss=0.82196]
+[2021-10-12 00:08:11.181]    Generated 32 batches of size 32 in 11.981 sec
+[2021-10-12 00:08:22.219]    Step 58      [6.277 sec/step, loss=0.67286, avg_loss=0.81939]
+[2021-10-12 00:08:28.407]    Step 59      [6.275 sec/step, loss=0.76049, avg_loss=0.81839]
+[2021-10-12 00:08:34.352]    Step 60      [6.269 sec/step, loss=0.74092, avg_loss=0.81710]
+[2021-10-12 00:08:40.008]    Step 61      [6.259 sec/step, loss=0.74762, avg_loss=0.81596]
+[2021-10-12 00:08:46.552]    Step 62      [6.264 sec/step, loss=0.73914, avg_loss=0.81472]
+[2021-10-12 00:08:52.852]    Step 63      [6.265 sec/step, loss=0.71735, avg_loss=0.81318]
+[2021-10-12 00:09:02.534]    Step 64      [6.318 sec/step, loss=0.72960, avg_loss=0.81187]
+[2021-10-12 00:09:10.478]    Step 65      [6.343 sec/step, loss=0.75917, avg_loss=0.81106]
+[2021-10-12 00:09:15.882]    Step 66      [6.329 sec/step, loss=0.73874, avg_loss=0.80997]
+[2021-10-12 00:09:22.177]    Step 67      [6.328 sec/step, loss=0.72969, avg_loss=0.80877]
+[2021-10-12 00:09:27.029]    Step 68      [6.307 sec/step, loss=0.74214, avg_loss=0.80779]
+[2021-10-12 00:09:34.029]    Step 69      [6.317 sec/step, loss=0.72777, avg_loss=0.80663]
+[2021-10-12 00:09:39.342]    Step 70      [6.302 sec/step, loss=0.71040, avg_loss=0.80525]
+[2021-10-12 00:09:45.346]    Step 71      [6.298 sec/step, loss=0.70673, avg_loss=0.80387]
+[2021-10-12 00:09:51.829]    Step 72      [6.301 sec/step, loss=0.69476, avg_loss=0.80235]
+[2021-10-12 00:10:00.985]    Step 73      [6.340 sec/step, loss=0.69428, avg_loss=0.80087]
+[2021-10-12 00:10:06.331]    Step 74      [6.326 sec/step, loss=0.70621, avg_loss=0.79959]
+[2021-10-12 00:10:11.658]    Step 75      [6.313 sec/step, loss=0.69460, avg_loss=0.79819]
+[2021-10-12 00:10:19.390]    Step 76      [6.332 sec/step, loss=0.67236, avg_loss=0.79653]
+[2021-10-12 00:10:25.229]    Step 77      [6.325 sec/step, loss=0.68009, avg_loss=0.79502]
+[2021-10-12 00:10:30.346]    Step 78      [6.310 sec/step, loss=0.70301, avg_loss=0.79384]
+[2021-10-12 00:10:36.667]    Step 79      [6.310 sec/step, loss=0.66813, avg_loss=0.79225]
+[2021-10-12 00:10:45.451]    Step 80      [6.341 sec/step, loss=0.66460, avg_loss=0.79066]
+[2021-10-12 00:10:53.203]    Step 81      [6.358 sec/step, loss=0.66864, avg_loss=0.78915]
+[2021-10-12 00:11:00.639]    Step 82      [6.371 sec/step, loss=0.66602, avg_loss=0.78765]
+[2021-10-12 00:11:06.696]    Step 83      [6.368 sec/step, loss=0.65785, avg_loss=0.78608]
+[2021-10-12 00:11:11.825]    Step 84      [6.353 sec/step, loss=0.67931, avg_loss=0.78481]
+[2021-10-12 00:11:18.734]    Step 85      [6.359 sec/step, loss=0.64346, avg_loss=0.78315]
+[2021-10-12 00:11:25.066]    Step 86      [6.359 sec/step, loss=0.63550, avg_loss=0.78143]
+[2021-10-12 00:11:29.780]    Step 87      [6.340 sec/step, loss=0.73699, avg_loss=0.78092]
+[2021-10-12 00:11:37.456]    Step 88      [6.355 sec/step, loss=0.61997, avg_loss=0.77909]
+[2021-10-12 00:11:42.825]    Generated 32 batches of size 32 in 12.726 sec
+[2021-10-12 00:11:43.381]    Step 89      [6.350 sec/step, loss=0.64833, avg_loss=0.77762]
+[2021-10-12 00:11:48.644]    Step 90      [6.338 sec/step, loss=0.63505, avg_loss=0.77604]
+[2021-10-12 00:11:55.432]    Step 91      [6.343 sec/step, loss=0.62098, avg_loss=0.77434]
+[2021-10-12 00:12:00.539]    Step 92      [6.330 sec/step, loss=0.62528, avg_loss=0.77272]
+[2021-10-12 00:12:12.749]    Step 93      [6.393 sec/step, loss=0.55172, avg_loss=0.77034]
+[2021-10-12 00:12:18.925]    Step 94      [6.391 sec/step, loss=0.60389, avg_loss=0.76857]
+[2021-10-12 00:12:24.563]    Step 95      [6.383 sec/step, loss=0.59498, avg_loss=0.76674]
+[2021-10-12 00:12:30.894]    Step 96      [6.382 sec/step, loss=0.57930, avg_loss=0.76479]
+[2021-10-12 00:12:36.270]    Step 97      [6.372 sec/step, loss=0.58538, avg_loss=0.76294]
+[2021-10-12 00:12:41.981]    Step 98      [6.365 sec/step, loss=0.57953, avg_loss=0.76107]
+[2021-10-12 00:12:47.837]    Step 99      [6.360 sec/step, loss=0.57155, avg_loss=0.75915]
+[2021-10-12 00:12:54.768]    Step 100     [6.366 sec/step, loss=0.56646, avg_loss=0.75723]
+[2021-10-12 00:12:54.768]    Writing summary at step: 100
+[2021-10-12 00:13:01.581]    Step 101     [6.264 sec/step, loss=0.57142, avg_loss=0.75429]
+[2021-10-12 00:13:07.607]    Step 102     [6.258 sec/step, loss=0.55443, avg_loss=0.75124]
+[2021-10-12 00:13:12.757]    Step 103     [6.256 sec/step, loss=0.56031, avg_loss=0.74830]
+[2021-10-12 00:13:20.899]    Step 104     [6.272 sec/step, loss=0.54492, avg_loss=0.74517]
+[2021-10-12 00:13:27.566]    Step 105     [6.271 sec/step, loss=0.54747, avg_loss=0.74207]
+[2021-10-12 00:13:32.242]    Step 106     [6.257 sec/step, loss=0.55146, avg_loss=0.73909]
+[2021-10-12 00:13:40.323]    Step 107     [6.279 sec/step, loss=0.53639, avg_loss=0.73602]
+[2021-10-12 00:13:45.251]    Step 108     [6.279 sec/step, loss=0.55544, avg_loss=0.73281]
+[2021-10-12 00:13:51.602]    Step 109     [6.296 sec/step, loss=0.51589, avg_loss=0.72891]
+[2021-10-12 00:13:56.919]    Step 110     [6.266 sec/step, loss=0.51952, avg_loss=0.72558]
+[2021-10-12 00:14:04.864]    Step 111     [6.295 sec/step, loss=0.52115, avg_loss=0.72208]
+[2021-10-12 00:14:10.801]    Step 112     [6.236 sec/step, loss=0.49617, avg_loss=0.72035]
+[2021-10-12 00:14:17.049]    Step 113     [6.215 sec/step, loss=0.49850, avg_loss=0.71721]
+[2021-10-12 00:14:24.838]    Step 114     [6.236 sec/step, loss=0.48021, avg_loss=0.71362]
+[2021-10-12 00:14:30.761]    Step 115     [6.244 sec/step, loss=0.47788, avg_loss=0.70994]
+[2021-10-12 00:14:37.995]    Step 116     [6.255 sec/step, loss=0.48252, avg_loss=0.70643]
+[2021-10-12 00:14:42.331]    Step 117     [6.241 sec/step, loss=0.53688, avg_loss=0.70327]
+[2021-10-12 00:14:47.423]    Step 118     [6.238 sec/step, loss=0.47923, avg_loss=0.69958]
+[2021-10-12 00:14:54.331]    Step 119     [6.255 sec/step, loss=0.46098, avg_loss=0.69557]
+[2021-10-12 00:15:01.504]    Generated 32 batches of size 32 in 13.774 sec
+[2021-10-12 00:15:07.682]    Step 120     [6.345 sec/step, loss=0.42631, avg_loss=0.69055]
+[2021-10-12 00:15:14.270]    Step 121     [6.337 sec/step, loss=0.46188, avg_loss=0.68679]
+[2021-10-12 00:15:21.192]    Step 122     [6.356 sec/step, loss=0.46683, avg_loss=0.68279]
+[2021-10-12 00:15:27.546]    Step 123     [6.364 sec/step, loss=0.44327, avg_loss=0.67886]
+[2021-10-12 00:15:33.445]    Step 124     [6.369 sec/step, loss=0.43552, avg_loss=0.67473]
+[2021-10-12 00:15:38.681]    Step 125     [6.369 sec/step, loss=0.44995, avg_loss=0.67088]
+[2021-10-12 00:15:43.920]    Step 126     [6.364 sec/step, loss=0.43507, avg_loss=0.66681]
+[2021-10-12 00:15:50.579]    Step 127     [6.371 sec/step, loss=0.42726, avg_loss=0.66285]
+[2021-10-12 00:15:56.661]    Step 128     [6.378 sec/step, loss=0.40304, avg_loss=0.65850]
+[2021-10-12 00:16:01.308]    Step 129     [6.365 sec/step, loss=0.42981, avg_loss=0.65472]
+[2021-10-12 00:16:06.486]    Step 130     [6.349 sec/step, loss=0.41826, avg_loss=0.65078]
+[2021-10-12 00:16:13.662]    Step 131     [6.356 sec/step, loss=0.41302, avg_loss=0.64677]
+[2021-10-12 00:16:20.614]    Step 132     [6.363 sec/step, loss=0.40049, avg_loss=0.64262]
+[2021-10-12 00:16:25.039]    Step 133     [6.332 sec/step, loss=0.43944, avg_loss=0.63882]
+[2021-10-12 00:16:30.806]    Step 134     [6.323 sec/step, loss=0.38963, avg_loss=0.63472]
+[2021-10-12 00:16:35.680]    Step 135     [6.315 sec/step, loss=0.38140, avg_loss=0.63012]
+[2021-10-12 00:16:42.468]    Step 136     [6.335 sec/step, loss=0.38495, avg_loss=0.62583]
+[2021-10-12 00:16:48.639]    Step 137     [6.348 sec/step, loss=0.37537, avg_loss=0.62128]
+[2021-10-12 00:16:54.140]    Step 138     [6.349 sec/step, loss=0.38745, avg_loss=0.61692]
+[2021-10-12 00:17:00.263]    Step 139     [6.356 sec/step, loss=0.36705, avg_loss=0.61232]
+[2021-10-12 00:17:05.907]    Step 140     [6.358 sec/step, loss=0.36416, avg_loss=0.60788]
+[2021-10-12 00:17:11.000]    Step 141     [6.356 sec/step, loss=0.35658, avg_loss=0.60345]
+[2021-10-12 00:17:22.535]    Step 142     [6.396 sec/step, loss=0.34935, avg_loss=0.59902]
+[2021-10-12 00:17:30.790]    Step 143     [6.385 sec/step, loss=0.36614, avg_loss=0.59478]
+[2021-10-12 00:17:36.390]    Step 144     [6.381 sec/step, loss=0.34496, avg_loss=0.59024]
+[2021-10-12 00:17:41.609]    Step 145     [6.364 sec/step, loss=0.34485, avg_loss=0.58584]
+[2021-10-12 00:17:46.363]    Step 146     [6.365 sec/step, loss=0.34403, avg_loss=0.58129]
+[2021-10-12 00:17:52.236]    Step 147     [6.373 sec/step, loss=0.33528, avg_loss=0.57664]
+[2021-10-12 00:17:59.681]    Step 148     [6.394 sec/step, loss=0.33813, avg_loss=0.57206]
+[2021-10-12 00:18:06.133]    Step 149     [6.394 sec/step, loss=0.33689, avg_loss=0.56778]
+[2021-10-12 00:18:13.851]    Step 150     [6.407 sec/step, loss=0.33870, avg_loss=0.56338]
+[2021-10-12 00:18:19.813]    Step 151     [6.413 sec/step, loss=0.31964, avg_loss=0.55887]
+[2021-10-12 00:18:25.914]    Generated 32 batches of size 32 in 11.741 sec
+[2021-10-12 00:18:27.015]    Step 152     [6.439 sec/step, loss=0.32397, avg_loss=0.55393]
+[2021-10-12 00:18:31.845]    Step 153     [6.420 sec/step, loss=0.32704, avg_loss=0.54950]
+[2021-10-12 00:18:36.600]    Step 154     [6.417 sec/step, loss=0.32187, avg_loss=0.54506]
+[2021-10-12 00:18:41.944]    Step 155     [6.413 sec/step, loss=0.30871, avg_loss=0.54047]
+[2021-10-12 00:18:48.470]    Step 156     [6.424 sec/step, loss=0.30456, avg_loss=0.53575]
+[2021-10-12 00:18:53.129]    Step 157     [6.405 sec/step, loss=0.31628, avg_loss=0.53139]
+[2021-10-12 00:18:58.252]    Step 158     [6.343 sec/step, loss=0.30037, avg_loss=0.52766]
+[2021-10-12 00:19:04.751]    Step 159     [6.346 sec/step, loss=0.29865, avg_loss=0.52304]
+[2021-10-12 00:19:10.679]    Step 160     [6.346 sec/step, loss=0.29530, avg_loss=0.51859]
+[2021-10-12 00:19:16.710]    Step 161     [6.350 sec/step, loss=0.29130, avg_loss=0.51402]
+[2021-10-12 00:19:21.024]    Step 162     [6.327 sec/step, loss=0.32707, avg_loss=0.50990]
+[2021-10-12 00:19:27.449]    Step 163     [6.329 sec/step, loss=0.28651, avg_loss=0.50560]
+[2021-10-12 00:19:33.301]    Step 164     [6.290 sec/step, loss=0.28594, avg_loss=0.50116]
+[2021-10-12 00:19:37.814]    Step 165     [6.256 sec/step, loss=0.29514, avg_loss=0.49652]
+[2021-10-12 00:19:45.019]    Step 166     [6.274 sec/step, loss=0.28669, avg_loss=0.49200]
+[2021-10-12 00:19:49.874]    Step 167     [6.260 sec/step, loss=0.29716, avg_loss=0.48767]
+[2021-10-12 00:19:56.146]    Step 168     [6.274 sec/step, loss=0.28034, avg_loss=0.48306]
+[2021-10-12 00:20:01.006]    Step 169     [6.252 sec/step, loss=0.27915, avg_loss=0.47857]
+[2021-10-12 00:20:06.539]    Step 170     [6.255 sec/step, loss=0.27554, avg_loss=0.47422]
+[2021-10-12 00:20:12.701]    Step 171     [6.256 sec/step, loss=0.27132, avg_loss=0.46987]
+[2021-10-12 00:20:18.937]    Step 172     [6.254 sec/step, loss=0.26557, avg_loss=0.46557]
+[2021-10-12 00:20:23.822]    Step 173     [6.211 sec/step, loss=0.27166, avg_loss=0.46135]
+[2021-10-12 00:20:29.033]    Step 174     [6.210 sec/step, loss=0.26883, avg_loss=0.45697]
+[2021-10-12 00:20:35.635]    Step 175     [6.222 sec/step, loss=0.26897, avg_loss=0.45272]
+[2021-10-12 00:20:44.600]    Step 176     [6.235 sec/step, loss=0.27739, avg_loss=0.44877]
+[2021-10-12 00:20:50.341]    Step 177     [6.234 sec/step, loss=0.26094, avg_loss=0.44458]
+[2021-10-12 00:20:55.680]    Step 178     [6.236 sec/step, loss=0.25941, avg_loss=0.44014]
+[2021-10-12 00:21:01.731]    Step 179     [6.233 sec/step, loss=0.25631, avg_loss=0.43602]
+[2021-10-12 00:21:06.658]    Step 180     [6.195 sec/step, loss=0.26496, avg_loss=0.43203]
+[2021-10-12 00:21:11.879]    Step 181     [6.169 sec/step, loss=0.25745, avg_loss=0.42791]
+[2021-10-12 00:21:17.320]    Step 182     [6.149 sec/step, loss=0.25227, avg_loss=0.42378]
+[2021-10-12 00:21:22.543]    Step 183     [6.141 sec/step, loss=0.25550, avg_loss=0.41975]
+[2021-10-12 00:21:27.983]    Step 184     [6.144 sec/step, loss=0.25104, avg_loss=0.41547]
+[2021-10-12 00:21:29.218]    Generated 32 batches of size 32 in 11.599 sec
+[2021-10-12 00:21:36.960]    Step 185     [6.165 sec/step, loss=0.26180, avg_loss=0.41165]
+[2021-10-12 00:21:43.071]    Step 186     [6.163 sec/step, loss=0.24924, avg_loss=0.40779]
+[2021-10-12 00:21:49.940]    Step 187     [6.184 sec/step, loss=0.24953, avg_loss=0.40292]
+[2021-10-12 00:21:55.609]    Step 188     [6.164 sec/step, loss=0.24600, avg_loss=0.39918]
+[2021-10-12 00:22:06.782]    Step 189     [6.217 sec/step, loss=0.23988, avg_loss=0.39509]
+[2021-10-12 00:22:12.070]    Step 190     [6.217 sec/step, loss=0.25082, avg_loss=0.39125]
+[2021-10-12 00:22:16.649]    Step 191     [6.195 sec/step, loss=0.25164, avg_loss=0.38756]
+[2021-10-12 00:22:21.068]    Step 192     [6.188 sec/step, loss=0.28835, avg_loss=0.38419]
+[2021-10-12 00:22:26.388]    Step 193     [6.119 sec/step, loss=0.24583, avg_loss=0.38113]
+[2021-10-12 00:22:31.659]    Step 194     [6.110 sec/step, loss=0.24762, avg_loss=0.37757]
+[2021-10-12 00:22:37.566]    Step 195     [6.113 sec/step, loss=0.24588, avg_loss=0.37408]
+[2021-10-12 00:22:42.706]    Step 196     [6.101 sec/step, loss=0.24799, avg_loss=0.37076]
+[2021-10-12 00:22:47.012]    Step 197     [6.090 sec/step, loss=0.24874, avg_loss=0.36740]
+[2021-10-12 00:22:57.315]    Step 198     [6.136 sec/step, loss=0.24797, avg_loss=0.36408]
+[2021-10-12 00:23:04.345]    Step 199     [6.148 sec/step, loss=0.25557, avg_loss=0.36092]
+[2021-10-12 00:23:09.772]    Step 200     [6.133 sec/step, loss=0.24460, avg_loss=0.35770]
+[2021-10-12 00:23:09.773]    Writing summary at step: 200
+[2021-10-12 00:23:16.897]    Step 201     [6.140 sec/step, loss=0.24483, avg_loss=0.35444]
+[2021-10-12 00:23:22.343]    Step 202     [6.134 sec/step, loss=0.23629, avg_loss=0.35125]
+[2021-10-12 00:23:28.373]    Step 203     [6.143 sec/step, loss=0.23711, avg_loss=0.34802]
+[2021-10-12 00:23:33.115]    Step 204     [6.109 sec/step, loss=0.24806, avg_loss=0.34505]
+[2021-10-12 00:23:37.939]    Step 205     [6.091 sec/step, loss=0.23573, avg_loss=0.34194]
+[2021-10-12 00:23:43.823]    Step 206     [6.103 sec/step, loss=0.23663, avg_loss=0.33879]
+[2021-10-12 00:23:48.787]    Step 207     [6.072 sec/step, loss=0.23867, avg_loss=0.33581]
+[2021-10-12 00:23:55.142]    Step 208     [6.086 sec/step, loss=0.23535, avg_loss=0.33261]
+[2021-10-12 00:24:00.106]    Step 209     [6.072 sec/step, loss=0.23589, avg_loss=0.32981]
+[2021-10-12 00:24:05.476]    Step 210     [6.073 sec/step, loss=0.23307, avg_loss=0.32695]
+[2021-10-12 00:24:13.311]    Step 211     [6.071 sec/step, loss=0.24463, avg_loss=0.32418]
+[2021-10-12 00:24:20.698]    Step 212     [6.086 sec/step, loss=0.24361, avg_loss=0.32165]
+[2021-10-12 00:24:25.509]    Step 213     [6.072 sec/step, loss=0.24183, avg_loss=0.31909]
+[2021-10-12 00:24:33.268]    Step 214     [6.071 sec/step, loss=0.23682, avg_loss=0.31665]
+[2021-10-12 00:24:37.143]    Generated 32 batches of size 32 in 11.393 sec
+[2021-10-12 00:24:40.585]    Step 215     [6.085 sec/step, loss=0.23092, avg_loss=0.31418]
+[2021-10-12 00:24:45.803]    Step 216     [6.065 sec/step, loss=0.23134, avg_loss=0.31167]
+[2021-10-12 00:24:51.151]    Step 217     [6.075 sec/step, loss=0.23533, avg_loss=0.30866]
+[2021-10-12 00:24:56.895]    Step 218     [6.082 sec/step, loss=0.22994, avg_loss=0.30616]
+[2021-10-12 00:25:03.347]    Step 219     [6.077 sec/step, loss=0.23157, avg_loss=0.30387]
+[2021-10-12 00:25:09.471]    Step 220     [6.005 sec/step, loss=0.23123, avg_loss=0.30192]
+[2021-10-12 00:25:14.196]    Step 221     [5.986 sec/step, loss=0.23248, avg_loss=0.29963]
+[2021-10-12 00:25:20.510]    Step 222     [5.980 sec/step, loss=0.23134, avg_loss=0.29727]
+[2021-10-12 00:25:29.220]    Step 223     [6.004 sec/step, loss=0.23549, avg_loss=0.29519]
+[2021-10-12 00:25:34.867]    Step 224     [6.001 sec/step, loss=0.22710, avg_loss=0.29311]
+[2021-10-12 00:25:40.336]    Step 225     [6.004 sec/step, loss=0.22924, avg_loss=0.29090]
+[2021-10-12 00:25:45.238]    Step 226     [6.000 sec/step, loss=0.23911, avg_loss=0.28894]
+[2021-10-12 00:25:50.197]    Step 227     [5.983 sec/step, loss=0.22763, avg_loss=0.28695]
+[2021-10-12 00:25:54.926]    Step 228     [5.970 sec/step, loss=0.23214, avg_loss=0.28524]
+[2021-10-12 00:26:00.229]    Step 229     [5.976 sec/step, loss=0.22682, avg_loss=0.28321]
+[2021-10-12 00:26:05.101]    Step 230     [5.973 sec/step, loss=0.23341, avg_loss=0.28136]
+[2021-10-12 00:26:10.282]    Step 231     [5.953 sec/step, loss=0.22427, avg_loss=0.27947]
+[2021-10-12 00:26:15.478]    Step 232     [5.936 sec/step, loss=0.22329, avg_loss=0.27770]
+[2021-10-12 00:26:20.301]    Step 233     [5.940 sec/step, loss=0.22466, avg_loss=0.27555]
+[2021-10-12 00:26:27.391]    Step 234     [5.953 sec/step, loss=0.23426, avg_loss=0.27400]
+[2021-10-12 00:26:33.008]    Step 235     [5.960 sec/step, loss=0.22486, avg_loss=0.27243]
+[2021-10-12 00:26:38.573]    Step 236     [5.948 sec/step, loss=0.22411, avg_loss=0.27082]
+[2021-10-12 00:26:44.492]    Step 237     [5.946 sec/step, loss=0.22323, avg_loss=0.26930]
+[2021-10-12 00:26:49.244]    Step 238     [5.938 sec/step, loss=0.23806, avg_loss=0.26781]
+[2021-10-12 00:26:56.348]    Step 239     [5.948 sec/step, loss=0.23108, avg_loss=0.26645]
+[2021-10-12 00:27:00.637]    Step 240     [5.934 sec/step, loss=0.24073, avg_loss=0.26521]
+[2021-10-12 00:27:05.483]    Step 241     [5.932 sec/step, loss=0.22096, avg_loss=0.26386]
+[2021-10-12 00:27:11.536]    Step 242     [5.877 sec/step, loss=0.22601, avg_loss=0.26262]
+[2021-10-12 00:27:18.517]    Step 243     [5.864 sec/step, loss=0.22785, avg_loss=0.26124]
+[2021-10-12 00:27:24.068]    Step 244     [5.864 sec/step, loss=0.22085, avg_loss=0.26000]
+[2021-10-12 00:27:36.049]    Step 245     [5.931 sec/step, loss=0.22589, avg_loss=0.25881]
+[2021-10-12 00:27:42.812]    Step 246     [5.952 sec/step, loss=0.22612, avg_loss=0.25763]
+[2021-10-12 00:27:47.702]    Generated 32 batches of size 32 in 11.373 sec
+[2021-10-12 00:27:49.946]    Step 247     [5.964 sec/step, loss=0.22447, avg_loss=0.25652]
+[2021-10-12 00:27:55.767]    Step 248     [5.948 sec/step, loss=0.22077, avg_loss=0.25535]
+[2021-10-12 00:28:01.984]    Step 249     [5.946 sec/step, loss=0.22270, avg_loss=0.25421]
+[2021-10-12 00:28:08.028]    Step 250     [5.929 sec/step, loss=0.22094, avg_loss=0.25303]
+[2021-10-12 00:28:12.986]    Step 251     [5.919 sec/step, loss=0.22330, avg_loss=0.25207]
+[2021-10-12 00:28:17.320]    Step 252     [5.890 sec/step, loss=0.22670, avg_loss=0.25109]
+[2021-10-12 00:28:24.222]    Step 253     [5.911 sec/step, loss=0.21797, avg_loss=0.25000]
+[2021-10-12 00:28:29.496]    Step 254     [5.916 sec/step, loss=0.22118, avg_loss=0.24900]
+[2021-10-12 00:28:35.167]    Step 255     [5.919 sec/step, loss=0.22029, avg_loss=0.24811]
+[2021-10-12 00:28:41.359]    Step 256     [5.916 sec/step, loss=0.21744, avg_loss=0.24724]
+[2021-10-12 00:28:47.451]    Step 257     [5.930 sec/step, loss=0.21633, avg_loss=0.24624]
+[2021-10-12 00:28:53.991]    Step 258     [5.944 sec/step, loss=0.21834, avg_loss=0.24542]
+[2021-10-12 00:28:59.796]    Step 259     [5.937 sec/step, loss=0.21658, avg_loss=0.24460]
+[2021-10-12 00:29:05.742]    Step 260     [5.938 sec/step, loss=0.21345, avg_loss=0.24378]
+[2021-10-12 00:29:10.673]    Step 261     [5.927 sec/step, loss=0.21954, avg_loss=0.24306]
+[2021-10-12 00:29:15.154]    Step 262     [5.928 sec/step, loss=0.22272, avg_loss=0.24202]
+[2021-10-12 00:29:20.412]    Step 263     [5.917 sec/step, loss=0.21246, avg_loss=0.24128]
+[2021-10-12 00:29:26.950]    Step 264     [5.924 sec/step, loss=0.22019, avg_loss=0.24062]
+[2021-10-12 00:29:32.982]    Step 265     [5.939 sec/step, loss=0.21596, avg_loss=0.23983]
+[2021-10-12 00:29:37.879]    Step 266     [5.916 sec/step, loss=0.21500, avg_loss=0.23911]
+[2021-10-12 00:29:42.564]    Step 267     [5.914 sec/step, loss=0.22159, avg_loss=0.23836]
+[2021-10-12 00:29:47.459]    Step 268     [5.900 sec/step, loss=0.22151, avg_loss=0.23777]
+[2021-10-12 00:29:52.587]    Step 269     [5.903 sec/step, loss=0.21677, avg_loss=0.23715]
+[2021-10-12 00:29:58.159]    Step 270     [5.903 sec/step, loss=0.21317, avg_loss=0.23652]
+[2021-10-12 00:30:03.524]    Step 271     [5.895 sec/step, loss=0.21366, avg_loss=0.23595]
+[2021-10-12 00:30:08.855]    Step 272     [5.886 sec/step, loss=0.21596, avg_loss=0.23545]
+[2021-10-12 00:30:13.540]    Step 273     [5.884 sec/step, loss=0.21528, avg_loss=0.23489]
+[2021-10-12 00:30:19.650]    Step 274     [5.893 sec/step, loss=0.21475, avg_loss=0.23435]
+[2021-10-12 00:30:25.309]    Step 275     [5.884 sec/step, loss=0.21358, avg_loss=0.23379]
+[2021-10-12 00:30:32.478]    Step 276     [5.866 sec/step, loss=0.21724, avg_loss=0.23319]
+[2021-10-12 00:30:37.156]    Step 277     [5.855 sec/step, loss=0.21476, avg_loss=0.23273]
+[2021-10-12 00:30:43.310]    Step 278     [5.863 sec/step, loss=0.21126, avg_loss=0.23225]
+[2021-10-12 00:30:48.887]    Generated 32 batches of size 32 in 11.501 sec
+[2021-10-12 00:30:51.598]    Step 279     [5.886 sec/step, loss=0.21621, avg_loss=0.23185]
+[2021-10-12 00:30:57.106]    Step 280     [5.892 sec/step, loss=0.21188, avg_loss=0.23131]
+[2021-10-12 00:31:01.913]    Step 281     [5.887 sec/step, loss=0.21521, avg_loss=0.23089]
+[2021-10-12 00:31:12.506]    Step 282     [5.939 sec/step, loss=0.20945, avg_loss=0.23046]
+[2021-10-12 00:31:19.033]    Step 283     [5.952 sec/step, loss=0.21220, avg_loss=0.23003]
+[2021-10-12 00:31:27.102]    Step 284     [5.978 sec/step, loss=0.21158, avg_loss=0.22964]
+[2021-10-12 00:31:31.611]    Step 285     [5.934 sec/step, loss=0.23415, avg_loss=0.22936]
+[2021-10-12 00:31:38.405]    Step 286     [5.940 sec/step, loss=0.20867, avg_loss=0.22895]
+[2021-10-12 00:31:43.678]    Step 287     [5.924 sec/step, loss=0.21471, avg_loss=0.22861]
+[2021-10-12 00:31:49.442]    Step 288     [5.925 sec/step, loss=0.21414, avg_loss=0.22829]
+[2021-10-12 00:31:55.858]    Step 289     [5.878 sec/step, loss=0.21502, avg_loss=0.22804]
+[2021-10-12 00:32:01.074]    Step 290     [5.877 sec/step, loss=0.21184, avg_loss=0.22765]
+[2021-10-12 00:32:06.772]    Step 291     [5.888 sec/step, loss=0.20939, avg_loss=0.22723]
+[2021-10-12 00:32:12.262]    Step 292     [5.899 sec/step, loss=0.20812, avg_loss=0.22642]
+[2021-10-12 00:32:18.753]    Step 293     [5.911 sec/step, loss=0.21041, avg_loss=0.22607]
+[2021-10-12 00:32:23.296]    Step 294     [5.903 sec/step, loss=0.21785, avg_loss=0.22577]
+[2021-10-12 00:32:27.708]    Step 295     [5.888 sec/step, loss=0.21657, avg_loss=0.22548]
+[2021-10-12 00:32:32.419]    Step 296     [5.884 sec/step, loss=0.21237, avg_loss=0.22512]
+[2021-10-12 00:32:37.895]    Step 297     [5.896 sec/step, loss=0.20995, avg_loss=0.22474]
+[2021-10-12 00:32:49.601]    Step 298     [5.910 sec/step, loss=0.18878, avg_loss=0.22414]
+[2021-10-12 00:32:55.589]    Step 299     [5.899 sec/step, loss=0.21079, avg_loss=0.22370]
+[2021-10-12 00:33:00.629]    Step 300     [5.896 sec/step, loss=0.20802, avg_loss=0.22333]
+[2021-10-12 00:33:00.629]    Writing summary at step: 300
+[2021-10-12 00:33:08.325]    Step 301     [5.901 sec/step, loss=0.21111, avg_loss=0.22299]
+[2021-10-12 00:33:13.837]    Step 302     [5.902 sec/step, loss=0.21115, avg_loss=0.22274]
+[2021-10-12 00:33:20.412]    Step 303     [5.907 sec/step, loss=0.21194, avg_loss=0.22249]
+[2021-10-12 00:33:25.417]    Step 304     [5.910 sec/step, loss=0.21079, avg_loss=0.22212]
+[2021-10-12 00:33:31.208]    Step 305     [5.919 sec/step, loss=0.21064, avg_loss=0.22187]
+[2021-10-12 00:33:36.074]    Step 306     [5.909 sec/step, loss=0.20765, avg_loss=0.22158]
+[2021-10-12 00:33:44.392]    Step 307     [5.943 sec/step, loss=0.20549, avg_loss=0.22124]
+[2021-10-12 00:33:48.889]    Step 308     [5.924 sec/step, loss=0.21284, avg_loss=0.22102]
+[2021-10-12 00:33:55.233]    Step 309     [5.938 sec/step, loss=0.20641, avg_loss=0.22072]
+[2021-10-12 00:34:00.345]    Generated 32 batches of size 32 in 11.197 sec
+[2021-10-12 00:34:00.732]    Step 310     [5.939 sec/step, loss=0.20729, avg_loss=0.22047]
+[2021-10-12 00:34:05.474]    Step 311     [5.908 sec/step, loss=0.20864, avg_loss=0.22011]
+[2021-10-12 00:34:10.256]    Step 312     [5.882 sec/step, loss=0.20604, avg_loss=0.21973]
+[2021-10-12 00:34:17.131]    Step 313     [5.903 sec/step, loss=0.20319, avg_loss=0.21934]
+[2021-10-12 00:34:24.056]    Step 314     [5.894 sec/step, loss=0.20384, avg_loss=0.21901]
+[2021-10-12 00:34:29.821]    Step 315     [5.879 sec/step, loss=0.20504, avg_loss=0.21876]
+[2021-10-12 00:34:35.394]    Step 316     [5.883 sec/step, loss=0.20147, avg_loss=0.21846]
+[2021-10-12 00:34:40.706]    Step 317     [5.882 sec/step, loss=0.20086, avg_loss=0.21811]
+[2021-10-12 00:34:45.965]    Step 318     [5.877 sec/step, loss=0.20348, avg_loss=0.21785]
+[2021-10-12 00:34:52.971]    Step 319     [5.883 sec/step, loss=0.20416, avg_loss=0.21757]
+[2021-10-12 00:34:57.689]    Step 320     [5.869 sec/step, loss=0.20646, avg_loss=0.21733]
+[2021-10-12 00:35:02.376]    Step 321     [5.868 sec/step, loss=0.20827, avg_loss=0.21708]
+[2021-10-12 00:35:07.882]    Step 322     [5.860 sec/step, loss=0.20109, avg_loss=0.21678]
+[2021-10-12 00:35:11.915]    Step 323     [5.814 sec/step, loss=0.20408, avg_loss=0.21647]
+[2021-10-12 00:35:17.135]    Step 324     [5.809 sec/step, loss=0.20237, avg_loss=0.21622]
+[2021-10-12 00:35:21.874]    Step 325     [5.802 sec/step, loss=0.20313, avg_loss=0.21596]
+[2021-10-12 00:35:29.965]    Step 326     [5.834 sec/step, loss=0.20346, avg_loss=0.21560]
+[2021-10-12 00:35:35.520]    Step 327     [5.840 sec/step, loss=0.20078, avg_loss=0.21533]
+[2021-10-12 00:35:41.562]    Step 328     [5.853 sec/step, loss=0.20068, avg_loss=0.21502]
+[2021-10-12 00:35:46.488]    Step 329     [5.849 sec/step, loss=0.20379, avg_loss=0.21479]
+[2021-10-12 00:35:51.415]    Step 330     [5.850 sec/step, loss=0.19822, avg_loss=0.21444]
+[2021-10-12 00:35:57.880]    Step 331     [5.863 sec/step, loss=0.20062, avg_loss=0.21420]
+[2021-10-12 00:36:03.126]    Step 332     [5.863 sec/step, loss=0.19740, avg_loss=0.21394]
+[2021-10-12 00:36:09.980]    Step 333     [5.883 sec/step, loss=0.20023, avg_loss=0.21370]
+[2021-10-12 00:36:17.091]    Step 334     [5.884 sec/step, loss=0.20125, avg_loss=0.21337]
+[2021-10-12 00:36:21.127]    Step 335     [5.868 sec/step, loss=0.21807, avg_loss=0.21330]
+[2021-10-12 00:36:27.187]    Step 336     [5.873 sec/step, loss=0.20426, avg_loss=0.21310]
+[2021-10-12 00:36:32.895]    Step 337     [5.871 sec/step, loss=0.19934, avg_loss=0.21286]
+[2021-10-12 00:36:39.180]    Step 338     [5.886 sec/step, loss=0.20005, avg_loss=0.21248]
+[2021-10-12 00:36:45.184]    Step 339     [5.875 sec/step, loss=0.19805, avg_loss=0.21215]
+[2021-10-12 00:36:50.937]    Step 340     [5.890 sec/step, loss=0.19712, avg_loss=0.21172]
+[2021-10-12 00:36:58.038]    Step 341     [5.912 sec/step, loss=0.19956, avg_loss=0.21150]
+[2021-10-12 00:37:02.442]    Generated 32 batches of size 32 in 11.267 sec
+[2021-10-12 00:37:02.880]    Step 342     [5.900 sec/step, loss=0.20238, avg_loss=0.21127]
+[2021-10-12 00:37:08.929]    Step 343     [5.891 sec/step, loss=0.19931, avg_loss=0.21098]
+[2021-10-12 00:37:14.043]    Step 344     [5.886 sec/step, loss=0.20386, avg_loss=0.21081]
+[2021-10-12 00:37:24.855]    Step 345     [5.875 sec/step, loss=0.18847, avg_loss=0.21044]
+[2021-10-12 00:37:30.100]    Step 346     [5.859 sec/step, loss=0.20011, avg_loss=0.21018]
+[2021-10-12 00:37:34.799]    Step 347     [5.835 sec/step, loss=0.20042, avg_loss=0.20994]
+[2021-10-12 00:37:40.576]    Step 348     [5.835 sec/step, loss=0.19832, avg_loss=0.20971]
+[2021-10-12 00:37:45.382]    Step 349     [5.821 sec/step, loss=0.19732, avg_loss=0.20946]
+[2021-10-12 00:37:53.510]    Step 350     [5.841 sec/step, loss=0.19820, avg_loss=0.20923]
+[2021-10-12 00:37:58.062]    Step 351     [5.837 sec/step, loss=0.20263, avg_loss=0.20902]
+[2021-10-12 00:38:05.243]    Step 352     [5.866 sec/step, loss=0.19554, avg_loss=0.20871]
+[2021-10-12 00:38:11.723]    Step 353     [5.862 sec/step, loss=0.19665, avg_loss=0.20850]
+[2021-10-12 00:38:18.043]    Step 354     [5.872 sec/step, loss=0.19765, avg_loss=0.20826]
+[2021-10-12 00:38:24.605]    Step 355     [5.881 sec/step, loss=0.19619, avg_loss=0.20802]
+[2021-10-12 00:38:29.372]    Step 356     [5.867 sec/step, loss=0.19966, avg_loss=0.20784]
+[2021-10-12 00:38:34.646]    Step 357     [5.859 sec/step, loss=0.19543, avg_loss=0.20764]
+[2021-10-12 00:38:38.956]    Step 358     [5.836 sec/step, loss=0.20180, avg_loss=0.20747]
+[2021-10-12 00:38:46.150]    Step 359     [5.850 sec/step, loss=0.19727, avg_loss=0.20728]
+[2021-10-12 00:38:51.956]    Step 360     [5.849 sec/step, loss=0.19283, avg_loss=0.20707]
+[2021-10-12 00:38:56.130]    Step 361     [5.841 sec/step, loss=0.20777, avg_loss=0.20695]
+[2021-10-12 00:39:01.112]    Step 362     [5.846 sec/step, loss=0.19922, avg_loss=0.20672]
+[2021-10-12 00:39:06.263]    Step 363     [5.845 sec/step, loss=0.19661, avg_loss=0.20656]
+[2021-10-12 00:39:12.194]    Step 364     [5.839 sec/step, loss=0.19574, avg_loss=0.20631]
+[2021-10-12 00:39:18.032]    Step 365     [5.837 sec/step, loss=0.19881, avg_loss=0.20614]
+[2021-10-12 00:39:24.301]    Step 366     [5.851 sec/step, loss=0.19539, avg_loss=0.20595]
+[2021-10-12 00:39:29.338]    Step 367     [5.854 sec/step, loss=0.19491, avg_loss=0.20568]
+[2021-10-12 00:39:34.517]    Step 368     [5.857 sec/step, loss=0.20164, avg_loss=0.20548]
+[2021-10-12 00:39:40.263]    Step 369     [5.863 sec/step, loss=0.19534, avg_loss=0.20527]
+[2021-10-12 00:39:45.473]    Step 370     [5.860 sec/step, loss=0.19716, avg_loss=0.20511]
+[2021-10-12 00:39:50.293]    Step 371     [5.854 sec/step, loss=0.19655, avg_loss=0.20494]
+[2021-10-12 00:39:55.584]    Step 372     [5.854 sec/step, loss=0.19185, avg_loss=0.20469]
+[2021-10-12 00:40:02.623]    Step 373     [5.877 sec/step, loss=0.19213, avg_loss=0.20446]
+[2021-10-12 00:40:07.755]    Generated 32 batches of size 32 in 11.905 sec
+[2021-10-12 00:40:10.749]    Step 374     [5.898 sec/step, loss=0.19357, avg_loss=0.20425]
+[2021-10-12 00:40:15.713]    Step 375     [5.891 sec/step, loss=0.19332, avg_loss=0.20405]
+[2021-10-12 00:40:25.753]    Step 376     [5.919 sec/step, loss=0.18288, avg_loss=0.20371]
+[2021-10-12 00:40:30.646]    Step 377     [5.922 sec/step, loss=0.19270, avg_loss=0.20348]
+[2021-10-12 00:40:36.303]    Step 378     [5.917 sec/step, loss=0.19332, avg_loss=0.20331]
+[2021-10-12 00:40:41.941]    Step 379     [5.890 sec/step, loss=0.19266, avg_loss=0.20307]
+[2021-10-12 00:40:46.668]    Step 380     [5.882 sec/step, loss=0.19446, avg_loss=0.20290]
+[2021-10-12 00:40:52.268]    Step 381     [5.890 sec/step, loss=0.19426, avg_loss=0.20269]
+[2021-10-12 00:40:57.468]    Step 382     [5.836 sec/step, loss=0.19061, avg_loss=0.20250]
+[2021-10-12 00:41:04.392]    Step 383     [5.840 sec/step, loss=0.19123, avg_loss=0.20229]
+[2021-10-12 00:41:10.415]    Step 384     [5.820 sec/step, loss=0.18966, avg_loss=0.20207]
+[2021-10-12 00:41:15.223]    Step 385     [5.823 sec/step, loss=0.19659, avg_loss=0.20169]
+[2021-10-12 00:41:20.341]    Step 386     [5.806 sec/step, loss=0.19086, avg_loss=0.20152]
+[2021-10-12 00:41:25.299]    Step 387     [5.803 sec/step, loss=0.19207, avg_loss=0.20129]
+[2021-10-12 00:41:30.536]    Step 388     [5.798 sec/step, loss=0.19007, avg_loss=0.20105]
+[2021-10-12 00:41:35.925]    Step 389     [5.787 sec/step, loss=0.19023, avg_loss=0.20080]
+[2021-10-12 00:41:43.494]    Step 390     [5.811 sec/step, loss=0.19323, avg_loss=0.20061]
+[2021-10-12 00:41:48.730]    Step 391     [5.806 sec/step, loss=0.19289, avg_loss=0.20045]
+[2021-10-12 00:41:54.929]    Step 392     [5.813 sec/step, loss=0.18790, avg_loss=0.20025]
+[2021-10-12 00:42:00.988]    Step 393     [5.809 sec/step, loss=0.19089, avg_loss=0.20005]
+[2021-10-12 00:42:06.563]    Step 394     [5.819 sec/step, loss=0.19026, avg_loss=0.19978]
+[2021-10-12 00:42:11.198]    Step 395     [5.822 sec/step, loss=0.19115, avg_loss=0.19952]
+[2021-10-12 00:42:16.233]    Step 396     [5.825 sec/step, loss=0.19019, avg_loss=0.19930]
+[2021-10-12 00:42:24.828]    Step 397     [5.856 sec/step, loss=0.18517, avg_loss=0.19905]
+[2021-10-12 00:42:29.001]    Step 398     [5.781 sec/step, loss=0.20135, avg_loss=0.19918]
+[2021-10-12 00:42:33.813]    Step 399     [5.769 sec/step, loss=0.19159, avg_loss=0.19899]
+[2021-10-12 00:42:38.863]    Step 400     [5.769 sec/step, loss=0.19258, avg_loss=0.19883]
+[2021-10-12 00:42:38.863]    Writing summary at step: 400
+[2021-10-12 00:42:46.590]    Step 401     [5.764 sec/step, loss=0.19069, avg_loss=0.19863]
+[2021-10-12 00:42:51.114]    Step 402     [5.754 sec/step, loss=0.18918, avg_loss=0.19841]
+[2021-10-12 00:42:56.322]    Step 403     [5.741 sec/step, loss=0.19026, avg_loss=0.19819]
+[2021-10-12 00:43:03.841]    Step 404     [5.766 sec/step, loss=0.18691, avg_loss=0.19795]
+[2021-10-12 00:43:07.547]    Generated 32 batches of size 32 in 10.973 sec
+[2021-10-12 00:43:09.957]    Step 405     [5.769 sec/step, loss=0.18851, avg_loss=0.19773]
+[2021-10-12 00:43:15.237]    Step 406     [5.773 sec/step, loss=0.19189, avg_loss=0.19757]
+[2021-10-12 00:43:19.760]    Step 407     [5.735 sec/step, loss=0.19476, avg_loss=0.19747]
+[2021-10-12 00:43:30.382]    Step 408     [5.796 sec/step, loss=0.16870, avg_loss=0.19702]
+[2021-10-12 00:43:36.698]    Step 409     [5.796 sec/step, loss=0.19218, avg_loss=0.19688]
+[2021-10-12 00:43:42.365]    Step 410     [5.798 sec/step, loss=0.19263, avg_loss=0.19674]
+[2021-10-12 00:43:46.981]    Step 411     [5.797 sec/step, loss=0.19496, avg_loss=0.19660]
+[2021-10-12 00:43:52.577]    Step 412     [5.805 sec/step, loss=0.19016, avg_loss=0.19644]
+[2021-10-12 00:43:58.480]    Step 413     [5.795 sec/step, loss=0.18991, avg_loss=0.19631]
+[2021-10-12 00:44:03.681]    Step 414     [5.778 sec/step, loss=0.18738, avg_loss=0.19614]
+[2021-10-12 00:44:09.884]    Step 415     [5.782 sec/step, loss=0.18931, avg_loss=0.19598]
+[2021-10-12 00:44:16.479]    Step 416     [5.792 sec/step, loss=0.18900, avg_loss=0.19586]
+[2021-10-12 00:44:22.613]    Step 417     [5.801 sec/step, loss=0.18751, avg_loss=0.19573]
+[2021-10-12 00:44:28.167]    Step 418     [5.804 sec/step, loss=0.18762, avg_loss=0.19557]
+[2021-10-12 00:44:33.715]    Step 419     [5.789 sec/step, loss=0.18768, avg_loss=0.19540]
+[2021-10-12 00:44:40.814]    Step 420     [5.813 sec/step, loss=0.18715, avg_loss=0.19521]
+[2021-10-12 00:44:46.408]    Step 421     [5.822 sec/step, loss=0.18773, avg_loss=0.19500]
+[2021-10-12 00:44:52.342]    Step 422     [5.826 sec/step, loss=0.18687, avg_loss=0.19486]
+[2021-10-12 00:44:56.806]    Step 423     [5.830 sec/step, loss=0.18827, avg_loss=0.19470]
+[2021-10-12 00:45:02.446]    Step 424     [5.835 sec/step, loss=0.18461, avg_loss=0.19453]
+[2021-10-12 00:45:06.819]    Step 425     [5.831 sec/step, loss=0.18895, avg_loss=0.19439]
+[2021-10-12 00:45:11.472]    Step 426     [5.797 sec/step, loss=0.18789, avg_loss=0.19423]
+[2021-10-12 00:45:17.712]    Step 427     [5.803 sec/step, loss=0.18739, avg_loss=0.19410]
+[2021-10-12 00:45:22.821]    Step 428     [5.794 sec/step, loss=0.18636, avg_loss=0.19395]
+[2021-10-12 00:45:29.119]    Step 429     [5.808 sec/step, loss=0.18620, avg_loss=0.19378]
+[2021-10-12 00:45:34.919]    Step 430     [5.817 sec/step, loss=0.18919, avg_loss=0.19369]
+[2021-10-12 00:45:39.898]    Step 431     [5.802 sec/step, loss=0.19167, avg_loss=0.19360]
+[2021-10-12 00:45:44.641]    Step 432     [5.797 sec/step, loss=0.18899, avg_loss=0.19351]
+[2021-10-12 00:45:49.695]    Step 433     [5.779 sec/step, loss=0.18749, avg_loss=0.19339]
+[2021-10-12 00:45:55.156]    Step 434     [5.762 sec/step, loss=0.18509, avg_loss=0.19322]
+[2021-10-12 00:46:00.155]    Step 435     [5.772 sec/step, loss=0.18946, avg_loss=0.19294]
+[2021-10-12 00:46:04.841]    Step 436     [5.758 sec/step, loss=0.19327, avg_loss=0.19283]
+[2021-10-12 00:46:10.544]    Step 437     [5.758 sec/step, loss=0.19172, avg_loss=0.19275]
+[2021-10-12 00:46:11.451]    Generated 32 batches of size 32 in 11.065 sec
+[2021-10-12 00:46:15.728]    Step 438     [5.747 sec/step, loss=0.18760, avg_loss=0.19263]
+[2021-10-12 00:46:21.751]    Step 439     [5.747 sec/step, loss=0.18662, avg_loss=0.19251]
+[2021-10-12 00:46:28.487]    Step 440     [5.757 sec/step, loss=0.18670, avg_loss=0.19241]
+[2021-10-12 00:46:38.418]    Step 441     [5.785 sec/step, loss=0.17105, avg_loss=0.19212]
+[2021-10-12 00:46:45.106]    Step 442     [5.804 sec/step, loss=0.19116, avg_loss=0.19201]
+[2021-10-12 00:46:52.830]    Step 443     [5.821 sec/step, loss=0.18448, avg_loss=0.19186]
+[2021-10-12 00:46:57.626]    Step 444     [5.817 sec/step, loss=0.19070, avg_loss=0.19173]
+[2021-10-12 00:47:03.669]    Step 445     [5.770 sec/step, loss=0.18860, avg_loss=0.19173]
+[2021-10-12 00:47:08.644]    Step 446     [5.767 sec/step, loss=0.18897, avg_loss=0.19162]
+[2021-10-12 00:47:15.227]    Step 447     [5.786 sec/step, loss=0.18642, avg_loss=0.19148]
+[2021-10-12 00:47:20.211]    Step 448     [5.778 sec/step, loss=0.18859, avg_loss=0.19138]
+[2021-10-12 00:47:30.880]    Step 449     [5.836 sec/step, loss=0.17416, avg_loss=0.19115]
+[2021-10-12 00:47:36.202]    Step 450     [5.808 sec/step, loss=0.18700, avg_loss=0.19104]
+[2021-10-12 00:47:41.098]    Step 451     [5.812 sec/step, loss=0.18802, avg_loss=0.19089]
+[2021-10-12 00:47:46.352]    Step 452     [5.793 sec/step, loss=0.18766, avg_loss=0.19082]
+[2021-10-12 00:47:53.383]    Step 453     [5.798 sec/step, loss=0.18649, avg_loss=0.19071]
+[2021-10-12 00:47:58.008]    Step 454     [5.781 sec/step, loss=0.19184, avg_loss=0.19066]
+[2021-10-12 00:48:04.384]    Step 455     [5.779 sec/step, loss=0.18379, avg_loss=0.19053]
+[2021-10-12 00:48:12.463]    Step 456     [5.812 sec/step, loss=0.18181, avg_loss=0.19035]
+[2021-10-12 00:48:18.975]    Step 457     [5.825 sec/step, loss=0.18826, avg_loss=0.19028]
+[2021-10-12 00:48:24.623]    Step 458     [5.838 sec/step, loss=0.18471, avg_loss=0.19011]
+[2021-10-12 00:48:29.967]    Step 459     [5.820 sec/step, loss=0.18648, avg_loss=0.19000]
+[2021-10-12 00:48:35.895]    Step 460     [5.821 sec/step, loss=0.18465, avg_loss=0.18992]
+[2021-10-12 00:48:41.155]    Step 461     [5.832 sec/step, loss=0.18675, avg_loss=0.18971]
+[2021-10-12 00:48:45.552]    Step 462     [5.826 sec/step, loss=0.19551, avg_loss=0.18967]
+[2021-10-12 00:48:50.990]    Step 463     [5.829 sec/step, loss=0.18586, avg_loss=0.18957]
+[2021-10-12 00:48:55.704]    Step 464     [5.817 sec/step, loss=0.18911, avg_loss=0.18950]
+[2021-10-12 00:49:00.905]    Step 465     [5.810 sec/step, loss=0.18563, avg_loss=0.18937]
+[2021-10-12 00:49:08.608]    Step 466     [5.825 sec/step, loss=0.18373, avg_loss=0.18925]
+[2021-10-12 00:49:14.486]    Step 467     [5.833 sec/step, loss=0.18286, avg_loss=0.18913]
+[2021-10-12 00:49:20.765]    Step 468     [5.844 sec/step, loss=0.18409, avg_loss=0.18896]
+[2021-10-12 00:49:25.525]    Step 469     [5.834 sec/step, loss=0.18838, avg_loss=0.18889]
+[2021-10-12 00:49:25.991]    Generated 32 batches of size 32 in 11.220 sec
+[2021-10-12 00:49:30.688]    Step 470     [5.834 sec/step, loss=0.18584, avg_loss=0.18877]
+[2021-10-12 00:49:36.090]    Step 471     [5.839 sec/step, loss=0.18687, avg_loss=0.18868]
+[2021-10-12 00:49:40.735]    Step 472     [5.833 sec/step, loss=0.18370, avg_loss=0.18859]
+[2021-10-12 00:49:46.846]    Step 473     [5.824 sec/step, loss=0.18423, avg_loss=0.18852]
+[2021-10-12 00:49:51.503]    Step 474     [5.789 sec/step, loss=0.18652, avg_loss=0.18844]
+[2021-10-12 00:49:55.968]    Step 475     [5.784 sec/step, loss=0.18415, avg_loss=0.18835]
+[2021-10-12 00:50:02.735]    Step 476     [5.751 sec/step, loss=0.18566, avg_loss=0.18838]
+[2021-10-12 00:50:14.728]    Step 477     [5.822 sec/step, loss=0.16152, avg_loss=0.18807]
+[2021-10-12 00:50:19.648]    Step 478     [5.815 sec/step, loss=0.19753, avg_loss=0.18811]
+[2021-10-12 00:50:24.996]    Step 479     [5.812 sec/step, loss=0.18467, avg_loss=0.18803]
+[2021-10-12 00:50:33.378]    Step 480     [5.849 sec/step, loss=0.18123, avg_loss=0.18790]
+[2021-10-12 00:50:39.632]    Step 481     [5.855 sec/step, loss=0.18612, avg_loss=0.18782]
+[2021-10-12 00:50:45.479]    Step 482     [5.862 sec/step, loss=0.18522, avg_loss=0.18776]
+[2021-10-12 00:50:51.424]    Step 483     [5.852 sec/step, loss=0.18492, avg_loss=0.18770]
+[2021-10-12 00:50:56.145]    Step 484     [5.839 sec/step, loss=0.18997, avg_loss=0.18770]
+[2021-10-12 00:51:02.753]    Step 485     [5.857 sec/step, loss=0.18685, avg_loss=0.18761]
+[2021-10-12 00:51:07.492]    Step 486     [5.853 sec/step, loss=0.18790, avg_loss=0.18758]
+[2021-10-12 00:51:15.052]    Step 487     [5.879 sec/step, loss=0.18268, avg_loss=0.18748]
+[2021-10-12 00:51:19.480]    Step 488     [5.871 sec/step, loss=0.18572, avg_loss=0.18744]
+[2021-10-12 00:51:25.349]    Step 489     [5.876 sec/step, loss=0.18494, avg_loss=0.18739]
+[2021-10-12 00:51:30.739]    Step 490     [5.854 sec/step, loss=0.18400, avg_loss=0.18729]
+[2021-10-12 00:51:35.767]    Step 491     [5.852 sec/step, loss=0.18293, avg_loss=0.18719]
+[2021-10-12 00:51:42.246]    Step 492     [5.855 sec/step, loss=0.18164, avg_loss=0.18713]
+[2021-10-12 00:51:47.452]    Step 493     [5.846 sec/step, loss=0.18252, avg_loss=0.18705]
+[2021-10-12 00:51:52.325]    Step 494     [5.839 sec/step, loss=0.18332, avg_loss=0.18698]
+[2021-10-12 00:51:56.609]    Step 495     [5.836 sec/step, loss=0.19208, avg_loss=0.18699]
+[2021-10-12 00:52:01.865]    Step 496     [5.838 sec/step, loss=0.18390, avg_loss=0.18693]
+[2021-10-12 00:52:06.285]    Step 497     [5.796 sec/step, loss=0.18464, avg_loss=0.18692]
+[2021-10-12 00:52:11.533]    Step 498     [5.807 sec/step, loss=0.18376, avg_loss=0.18674]
+[2021-10-12 00:52:17.515]    Step 499     [5.819 sec/step, loss=0.18184, avg_loss=0.18665]
+[2021-10-12 00:52:23.662]    Step 500     [5.829 sec/step, loss=0.17927, avg_loss=0.18651]
+[2021-10-12 00:52:23.663]    Writing summary at step: 500
+[2021-10-12 00:52:25.697]    Saving audio and alignment...
+[2021-10-12 00:52:29.109]    Generated 32 batches of size 32 in 11.327 sec
+[2021-10-12 00:52:31.354]    Training korean : Use jamo
+[2021-10-12 00:52:31.361]    Exiting due to exception: Could not synthesize characters to Hangul.

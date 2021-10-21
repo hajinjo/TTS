@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Jeffotron</title>
+    <link rel="shortcut icon" href="/wavs/favicon.ico">
+
+
+<style>
+		.collapsible {
+		  background-color: #777;
+		  color: white;
+		  cursor: pointer;
+		  padding: 10px;
+		  width: 100%;
+		  border: none;
+		  text-align: left;
+		  outline: none;
+		  font-size: 15px;
+		}
+
+		.active, .collapsible:hover {
+		  background-color: #555;
+		}
+
+		.collapsible:after {
+		  content: '\002B';
+		  color: white;
+		  font-weight: bold;
+		  float: right;
+		  margin-left: 5px;
+		}
+
+		.active:after {
+		  content: "\2212";
+		}
+
+		.content {
+		  padding: 0 18px;
+		  max-height: 0;
+		  overflow: hidden;
+		  transition: max-height 0.2s ease-out;
+		  background-color: #f1f1f1;
+		}
+    </style>
+
+</head>
+
+  <body>
+    <center>
+      <br>
+    <h1>Text-to-Speech page</h1>
+
+    <div class="w-50 p-3 ml-3">
+      <a href="/">Home</a>
+
+    <div class="form">
+      <form action="/speech" method="POST">
+          
+          <div class="col-sm-3"></div>
+          <div class="col-xs-6">
+            <textarea class="form-control" id="text_area" name="content" placeholder="텍스트를 입력해주세요."
+            cols="40" rows="3"></textarea>
+          </div>
+        
+          <div>
+            <br>
+              <button type="submit" class="btn btn-outline-primary">음성 합성</button>
+            </div>
+      </form>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <script>
+              alert("{{messages[-1]}}")
+          </script>
+      {% endif %}
+      {% endwith %}
+
+      <hr class="my-4">
+      <div class="media">
+          <div class="media-body pull-right">
+              <p class="lead"> <strong>합성된 음성 </strong></p>
+          <audio controls>
+            <source src="{{voice}}" type="audio/wav">
+          </audio> 
+          <p> " {{text}} " </p>
+          </div>
+      </div>  
+    </center>
+  </body>
+
+</html>
